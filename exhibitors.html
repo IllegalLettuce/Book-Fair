@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibitors</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper blue darken-4">
+        <div class="container">
+            <a href="#" class="brand-logo left">BookFair</a>
+            <a href="#" class="sidenav-trigger right" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#books">Search Books</a></li>
+                <li><a href="exhibitors.html">Exhibitors</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="login.html">Exhibitor Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#books">Search Books</a></li>
+        <li><a href="exhibitors.html">Exhibitors</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="login.html">Exhibitor Login</a></li>
+    </ul>
+
+    <!-- Exhibitor Search and List -->
+    <section id="exhibitors" class="section container">
+        <h2 class="center-align">Exhibitors</h2>
+
+        <!-- Search and Filter -->
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="exhibitorSearch" type="text" placeholder="Search and filtering exhibitors by company name, contact person, or email">
+                </div>
+            </div>
+        </div>
+
+        <!-- Exhibitor Table -->
+        <div class="row">
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Contact Person</th>
+                        <th>Email</th>
+                        <th>Contact DOB</th>
+                    </tr>
+                </thead>
+                <tbody id="exhibitorList">
+                    <!-- Rows dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-4">
+        <div class="container center-align">
+            <p>© 2024 International Book Fair | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- jQuery and Materialize JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBjtHjEhTHKWhWxX-7d-7lu9iUWtGea1HM",
+            authDomain: "bookfairmtu.firebaseapp.com",
+            projectId: "bookfairmtu",
+            storageBucket: "bookfairmtu.appspot.com",
+            messagingSenderId: "247257573786",
+            appId: "1:247257573786:web:f921cb5455b07653843223"
+        };
+    
+        // Initialize Firebase and Firestore
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Populate exhibitor table
+        async function loadExhibitors() {
+            const exhibitorList = document.getElementById("exhibitorList");
+            exhibitorList.innerHTML = ""; // Clear table rows
+    
+            try {
+                const querySnapshot = await getDocs(collection(db, "Exhibitors"));
+                querySnapshot.forEach((doc) => {
+                    const exhibitor = doc.data();
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${exhibitor.companyName || "N/A"}</td>
+                        <td>${exhibitor.contactPersonName || "N/A"}</td>
+                        <td>${exhibitor.email || "N/A"}</td>
+                        <td>${exhibitor.contactPersonDOB || "N/A"}</td>
+                    `;
+                    exhibitorList.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error loading exhibitors:", error);
+            }
+        }
+    
+        // Filter exhibitors based on search query
+        document.getElementById("exhibitorSearch").addEventListener("input", (event) => {
+            const searchQuery = event.target.value.toLowerCase();
+            const rows = document.querySelectorAll("#exhibitorList tr");
+            rows.forEach((row) => {
+                const companyName = row.children[0].textContent.toLowerCase();
+                const contactPersonName = row.children[1].textContent.toLowerCase();
+                const email = row.children[2].textContent.toLowerCase();
+                row.style.display =
+                    companyName.includes(searchQuery) ||
+                    contactPersonName.includes(searchQuery) ||
+                    email.includes(searchQuery)
+                        ? ""
+                        : "none";
+            });
+        });
+    
+        // Load exhibitors on page load
+        window.addEventListener("DOMContentLoaded", loadExhibitors);
+    </script>
+    
+</body>
+</html>

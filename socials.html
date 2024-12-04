@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper blue darken-4">
+        <div class="container">
+            <a href="#" class="brand-logo left">BookFair</a>
+            <a href="#" class="sidenav-trigger right" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Search Books</a></li>
+                <li><a href="exhibitors.html">Exhibitors</a></li>
+                <li><a href="#tickets">Tickets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Search Books</a></li>
+        <li><a href="exhibitors.html">Exhibitors</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+<!-- Socials and Download -->
+<section id="about" class="section container white" style="padding: 50px 0;">
+    <div class="row">
+        <div class="col s12 center-align">
+            <div class="card" style="padding: 20px; max-width: 500px; margin: 0 auto; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <!-- NOTE: THESE LINKS WILL NOT WORK AS THE WEBSITE IS NOT HOSTED ONLINE -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/images/pamphlet.pdf" target="_blank">
+                    <button type="button">Share on Facebook</button>
+                </a>
+                <br><br>
+                <a href="https://twitter.com/intent/tweet?url=https://127.0.0.1:5500/src/images/pamphlet.pdf&text=Check%20out%20our%20pamphlet!" target="_blank">
+                    <button type="button">Share on X</button>
+                </a>
+                <br><br>
+                <p>Download a pamphlet below!</p>
+                <a href="images/pamphlet.pdf" download="pamphlet.pdf">
+                    <button type="button">Download</button>
+                </a>                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-4">
+        <div class="container center-align">
+            <p>© 2024 International Book Fair | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- jQuery and Materialize JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

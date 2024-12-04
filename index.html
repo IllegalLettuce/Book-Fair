@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Book Fair</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper blue darken-4">
+        <div class="container">
+            <a href="#" class="brand-logo left">BookFair</a>
+            <a href="#" class="sidenav-trigger right" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/organizers.html">About</a></li>
+                <li><a href="#books">Search Books</a></li>
+                <li><a href="exhibitors.html">Exhibitors</a></li>
+                <li><a href="specialauthors.html">View Special Authors</a></li>
+                <li><a href="gallery.html">View Gallery</a></li>
+                <li><a href="#tickets">Tickets</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Exhibitor Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Search Books</a></li>
+        <li><a href="exhibitors.html">Exhibitors</a></li>
+        <li><a href="specialauthors.html">View Special Authors</a></li>
+        <li><a href="gallery.html">View Gallery</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Exhibitor Login</a></li>
+    </ul>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section center-align blue darken-2 white-text" style="padding: 100px 0; background: url('https://fastly.picsum.photos/id/586/1500/800.jpg?hmac=uszpDElrPJ-MKNnDqKpaeSg_06ZTOXV8MjGUoEy58TE') no-repeat center center/cover;">
+        <div class="container">
+            <h1 class="white-text">Welcome to the International Book Fair</h1>
+            <p>Explore, discover, and meet renowned authors from around the world.</p>
+            <a href="#tickets" class="btn-large orange">Get Your Tickets</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section container white" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">About the Fair</h2>
+                <p>The International Book Fair brings together book lovers, authors, and publishers to celebrate literature and culture. Dive into workshops, autograph sessions, and more!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Search Section -->
+    <section id="books" class="section container grey lighten-4" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">Search Books</h2>
+                <div class="input-field">
+                    <input type="text" id="bookSearch" placeholder="Search books by title, author, or genre">
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Results Table -->
+        <div class="row">
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th><a href="#" id="sortTitle">Title</a></th>
+                        <th><a href="#" id="sortAuthor">Author</a></th>
+                        <th><a href="#" id="sortGenre">Genre</a></th>
+                        <th><a href="#" id="sortDate">Publication Date</a></th>
+                    </tr>
+                </thead>
+                <tbody id="bookResultsTable" style="display: none;">
+                    <!-- Rows dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+   <!-- Exhibitors Section -->
+<section id="exhibitors" class="section container white" style="padding: 50px 0;">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="center-align">Meet the Exhibitors</h2>
+            <p class="center-align">Explore a wide range of exhibitors showcasing their latest products and books. Exhibitors can also register to book their booth spaces here.</p>
+        </div>
+
+        <!-- Exhibitor List -->
+        <div class="col s6 m4 center-align">
+            <img src="images/cambridge.jpg" alt="Exhibitor 1" class="circle responsive-img">
+            <p>Cambridge University Press</p>
+            <a href="#modal1" class="btn blue darken-2 modal-trigger">View More</a>
+        </div>
+        <div class="col s6 m4 center-align">
+            <img src="images/HongKong.jpg" alt="Exhibitor 2" class="circle responsive-img">
+            <p>Hong Kong Book Fair</p>
+            <a href="#modal2" class="btn blue darken-2 modal-trigger">View More</a>
+        </div>
+        <div class="col s6 m4 center-align">
+            <img src="images/penguinhouse.jpg" alt="Exhibitor 3" class="circle responsive-img">
+            <p>Penguin House</p>
+            <a href="#modal3" class="btn blue darken-2 modal-trigger">View More</a>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <!-- Modal for Exhibitor 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Cambridge University Press</h4>
+            <p>Cambridge University Press is a renowned academic publisher, bringing the latest in scholarly books, journals, and online resources. They are dedicated to advancing knowledge and learning in various academic fields. Visit their booth to explore books across disciplines like science, literature, and history.</p>
+            <p><strong>Featured Products:</strong> Academic textbooks, educational software, online courses</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <!-- Modal for Exhibitor 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Hong Kong Book Fair</h4>
+            <p>The Hong Kong Book Fair is an annual event showcasing thousands of books and publishing resources. It attracts publishers, authors, and readers from around the world. The exhibition features the latest in both academic and entertainment literature.</p>
+            <p><strong>Featured Products:</strong> International book releases, literary events, author signings</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <!-- Modal for Exhibitor 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <h4>Penguin House</h4>
+            <p>Penguin House is one of the most iconic publishing houses in the world, known for its range of bestsellers, novels, and non-fiction books. They publish books from various genres, including contemporary fiction, classic novels, and cookbooks. Stop by their booth to discover their latest releases.</p>
+            <p><strong>Featured Products:</strong> Fiction novels, memoirs, cookbooks, children’s books</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center-align">
+            <a href="register.html" class="btn blue darken-2">Register as an Exhibitor</a>
+        </div>
+    </div>
+</section>
+
+<!-- Include Materialize CSS & JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+</script>
+
+
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="section container grey lighten-4" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">Get Your Tickets</h2>
+                <p>Adult Ticket: € 5 | Child Ticket: € 3 | Morning Admission: € 3</p>
+                <p>Secure your tickets now! Payment options include PayPal and card payments.</p>
+                <div class="center-align">
+                    <a href="tickets.html" class="btn-large orange">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section container white" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">Contact Us</h2>
+                <p class="center-align">For any inquiries about the International Book Fair, feel free to reach out to us:</p>
+                <ul class="center-align">
+                    <li><strong>Email:</strong> contact@bookfair.com</li>
+                    <li><strong>Phone:</strong> +123 456 7890</li>
+                    <li><strong>Address:</strong> 123 Book Street, Dublin, Ireland</li>
+                </ul>
+                <div class="center-align">
+                    <a href="mailto:contact@bookfair.com" class="btn blue darken-2">Send Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-4">
+        <div class="container center-align">
+            <p>Â© 2024 International Book Fair | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- jQuery and Materialize JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

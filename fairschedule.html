@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Schedule</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper blue darken-4">
+        <div class="container">
+            <a href="#" class="brand-logo left">BookFair</a>
+            <a href="#" class="sidenav-trigger right" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Search Books</a></li>
+                <li><a href="exhibitors.html">Exhibitors</a></li>
+                <li><a href="specialauthors.html">View Special Authors</a></li>
+                <li><a href="gallery.html">View Gallery</a></li>
+                <li><a href="#tickets">Tickets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Search Books</a></li>
+        <li><a href="#exhibitors">Exhibitors</a></li>
+        <li><a href="specialauthors.html">View Special Authors</a></li>
+        <li><a href="gallery.html">View Gallery</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section center-align blue darken-2 white-text" style="padding: 100px 0; background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;">
+        <div class="container">
+            <h1 class="white-text">View the Fair Schedule Below</h1>
+            <p>Explore, discover, and meet renowned authors from around the world.</p>
+            <!-- <a href="#tickets" class="btn-large orange">Get Your Tickets</a> -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section container white" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Location</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Opening Ceremony</td>
+                            <td>Main Stage</td>
+                            <td>Welcome speech and introduction</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td>Exhibit A</td>
+                            <td>Hall A</td>
+                            <td>Display of art and technology</td>
+                        </tr>
+                        <tr>
+                            <td>12:30 PM</td>
+                            <td>Lunch Break</td>
+                            <td>Food Court</td>
+                            <td>Various food stalls available</td>
+                        </tr>
+                        <tr>
+                            <td>2:00 PM</td>
+                            <td>Workshop: AI & Robotics</td>
+                            <td>Conference Room 1</td>
+                            <td>Interactive session on AI advancements</td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>Closing Remarks</td>
+                            <td>Main Stage</td>
+                            <td>Event conclusion and thanks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section container white" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">Contact Us</h2>
+                <p class="center-align">For any inquiries about the International Book Fair, feel free to reach out to us:</p>
+                <ul class="center-align">
+                    <li><strong>Email:</strong> contact@bookfair.com</li>
+                    <li><strong>Phone:</strong> +123 456 7890</li>
+                    <li><strong>Address:</strong> 123 Book Street, Dublin, Ireland</li>
+                </ul>
+                <div class="center-align">
+                    <a href="mailto:contact@bookfair.com" class="btn blue darken-2">Send Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-4">
+        <div class="container center-align">
+            <p>© 2024 International Book Fair | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- jQuery and Materialize JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

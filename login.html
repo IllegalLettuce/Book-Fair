@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibitor Login - International Book Fair</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-wrapper blue darken-4">
+        <div class="container">
+            <a href="index.html" class="brand-logo left">BookFair</a>
+            <a href="#" class="sidenav-trigger right" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#books">Search Books</a></li>
+                <li><a href="exhibitors.html">Exhibitors</a></li>
+                <li><a href="specialauthors.html">View Special Authors</a></li>
+                <li><a href="index.html#tickets">Tickets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#books">Search Books</a></li>
+        <li><a href="index.html#exhibitors">Exhibitors</a></li>
+        <li><a href="specialauthors.html">View Special Authors</a></li>
+        <li><a href="index.html#tickets">Tickets</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <!-- Exhibitor Login Section -->
+    <section class="section container grey lighten-4" style="padding: 50px 0;">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <h2 class="center-align">Exhibitor Login</h2>
+                <form id="loginForm">
+                    <div class="input-field">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="center-align">
+                        <button type="submit" class="btn blue darken-2">Login</button>
+                    </div>
+                </form>
+                <div id="loginMessage" class="center-align" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-4">
+        <div class="container center-align">
+            <p>© 2024 International Book Fair | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Firebase, jQuery, and Materialize JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Firebase Authentication Script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBjtHjEhTHKWhWxX-7d-7lu9iUWtGea1HM",
+            authDomain: "bookfairmtu.firebaseapp.com",
+            projectId: "bookfairmtu",
+            storageBucket: "bookfairmtu.appspot.com",
+            messagingSenderId: "247257573786",
+            appId: "1:247257573786:web:f921cb5455b07653843223"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Handle login form submission
+        $(document).ready(function () {
+            $('#loginForm').submit(async function (event) {
+                event.preventDefault();
+                const email = $('#email').val();
+                const password = $('#password').val();
+
+                try {
+                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    $('#loginMessage').html('<p class="green-text">Login successful!</p>');
+                    console.log("Logged in as:", userCredential.user.email);
+                    // Redirect to another page or update the UI after successful login
+                } catch (error) {
+                    console.error("Login error:", error.message);
+                    $('#loginMessage').html(`<p class="red-text">Login failed: ${error.message}</p>`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
